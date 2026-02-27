@@ -9,13 +9,13 @@ export default function ExampleUsage() {
     <div>
       <h1>xFloor Metric Feed</h1>
       <button type="button" onClick={() => setIsOpen(true)}>
-        New Post (floor c3_313)
+        New Post (floor c1_113)
       </button>
 
       <MetricIngestionModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        floorId="c3_313"
+        floorId="c1_113"
         bearerToken="<XFLOOR_BEARER_TOKEN>"
         appId="<APP_ID>"
         userId="<USER_ID>"

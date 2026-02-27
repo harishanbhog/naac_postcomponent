@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import './MetricIngestionModal.css';
 
+const FALLBACK_ACCEPT = 'image/*,video/*,application/pdf';
+
 export function escapeHtml(input) {
   return String(input ?? '')
     .replace(/&/g, '&amp;')
@@ -10,25 +12,52 @@ export function escapeHtml(input) {
     .replace(/'/g, '&#39;');
 }
 
-export function resolveSchema(floorId, formConfig) {
-  const floorInfo = formConfig?.floor_id_index?.[floorId];
-  if (!floorInfo) {
-    throw new Error(`No floor mapping found for floorId: ${floorId}`);
+function toAcceptValue(allowedTypes) {
+  if (!Array.isArray(allowedTypes) || allowedTypes.length === 0) {
+    return FALLBACK_ACCEPT;
   }
 
-  const criterion = formConfig?.metrics?.[floorInfo.criterion_code];
-  const metric = criterion?.children?.[floorInfo.metric_code];
-  const schema = metric?.form_schema;
+  const normalized = allowedTypes
+    .map((entry) => String(entry || '').trim().toLowerCase())
+    .map((entry) => {
+      if (entry === 'image') return 'image/*';
+      if (entry === 'video') return 'video/*';
+      if (entry === 'pdf') return 'application/pdf';
+      return entry;
+    })
+    .filter(Boolean);
 
-  if (!schema) {
-    throw new Error(`No form schema found for floorId: ${floorId}`);
+  return normalized.length ? normalized.join(',') : FALLBACK_ACCEPT;
+}
+
+function matchesAllowedType(file, allowedTypes) {
+  if (!Array.isArray(allowedTypes) || allowedTypes.length === 0) return true;
+  const mime = String(file?.type || '').toLowerCase();
+
+  return allowedTypes.some((raw) => {
+    const type = String(raw || '').trim().toLowerCase();
+    if (type === 'image') return mime.startsWith('image/');
+    if (type === 'video') return mime.startsWith('video/');
+    if (type === 'pdf') return mime === 'application/pdf';
+    if (type.endsWith('/*')) return mime.startsWith(type.replace('*', ''));
+    return mime === type;
+  });
+}
+
+export function resolveSchema(floorId, formConfig) {
+  const form = formConfig?.forms_by_floor_id?.[floorId];
+  if (!form) {
+    throw new Error(`No form found for floorId: ${floorId}`);
   }
 
   return {
-    info: floorInfo,
-    schema,
-    metricTitle: metric?.title || floorInfo.metric_code,
-    metricCode: floorInfo.metric_code,
+    schema: {
+      fields: form.fields || [],
+      attachments: form.attachments || {},
+    },
+    metricTitle: form.title || form.metric_code || 'Metric Form',
+    metricCode: form.metric_code || '',
+    fullTitle: form.full_title || '',
   };
 }
 
@@ -37,10 +66,8 @@ export function validate(values, schema, files) {
 
   (schema?.fields || []).forEach((field) => {
     if (field.type === 'date_range') {
-      const fromKey = `${field.key}_from`;
-      const toKey = `${field.key}_to`;
-      const fromVal = values[fromKey];
-      const toVal = values[toKey];
+      const fromVal = values[`${field.key}_from`];
+      const toVal = values[`${field.key}_to`];
 
       if (field.required && (!fromVal || !toVal)) {
         errors[field.key] = `${field.label} requires both start and end dates.`;
@@ -68,7 +95,7 @@ export function validate(values, schema, files) {
       try {
         const parsed = new URL(value);
         if (!['http:', 'https:'].includes(parsed.protocol)) {
-          throw new Error('Invalid protocol');
+          throw new Error('invalid protocol');
         }
       } catch {
         errors[field.key] = `${field.label} must be a valid URL.`;
@@ -76,18 +103,21 @@ export function validate(values, schema, files) {
     }
   });
 
-  const attachmentRules = schema?.attachments;
-  if (attachmentRules?.required || attachmentRules?.min_files) {
-    const minFiles = Number(attachmentRules.min_files || 0);
-    if ((files?.length || 0) < minFiles) {
-      errors.attachments = `Please attach at least ${minFiles} file(s).`;
-    }
+  const attachmentRules = schema?.attachments || {};
+  const minFiles = Number(attachmentRules.min_files || (attachmentRules.required ? 1 : 0));
+  if ((files?.length || 0) < minFiles) {
+    errors.attachments = `Please attach at least ${minFiles} file(s).`;
+  }
+
+  const invalid = (files || []).filter((file) => !matchesAllowedType(file, attachmentRules.allowed_types));
+  if (invalid.length > 0) {
+    errors.attachments = 'Some attachments have unsupported file types.';
   }
 
   return errors;
 }
 
-export function buildHtmlTable(values, schema, metricTitle, floorId) {
+export function buildHtmlTable(values, schema, metricTitle, floorId, metricCode = '') {
   const rows = (schema?.fields || [])
     .map((field) => {
       let displayValue = values[field.key];
@@ -98,20 +128,16 @@ export function buildHtmlTable(values, schema, metricTitle, floorId) {
         displayValue = `${fromVal} to ${toVal}`;
       }
 
-      const safeLabel = escapeHtml(field.label);
-      const safeValue = escapeHtml(String(displayValue ?? '-'));
-      return `<tr><td>${safeLabel}</td><td>${safeValue}</td></tr>`;
+      return `<tr><td>${escapeHtml(field.label)}</td><td>${escapeHtml(String(displayValue ?? '-'))}</td></tr>`;
     })
     .join('');
 
-  const header = `<div><strong>${escapeHtml(metricTitle)}</strong> (${escapeHtml(
-    schema?.metric_code || ''
-  )}) - Floor: ${escapeHtml(floorId)}</div>`;
+  const header = `<div><strong>${escapeHtml(metricTitle)}</strong> (${escapeHtml(metricCode)}) - Floor: ${escapeHtml(
+    floorId
+  )}</div>`;
 
   return `${header}<table border="1" cellpadding="6" cellspacing="0"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
-
-const FILE_ACCEPT = 'image/*,video/*,application/pdf';
 
 export default function MetricIngestionModal({
   isOpen,
@@ -155,10 +181,7 @@ export default function MetricIngestionModal({
   const schema = resolved?.schema;
   const metricTitle = resolved?.metricTitle || 'Metric Form';
   const metricCode = resolved?.metricCode || '';
-
-  const onChangeField = (key, value) => {
-    setValues((prev) => ({ ...prev, [key]: value }));
-  };
+  const fileAccept = toAcceptValue(schema?.attachments?.allowed_types);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -167,22 +190,14 @@ export default function MetricIngestionModal({
     const newErrors = validate(values, schema, files);
     setErrors(newErrors);
     setSubmitError('');
-
     if (Object.keys(newErrors).length > 0) return;
-
-    const htmlDescription = buildHtmlTable(
-      values,
-      { ...schema, metric_code: metricCode },
-      metricTitle,
-      floorId
-    );
 
     const inputInfo = {
       floor_id: floorId,
       ...(blockId ? { block_id: blockId } : {}),
       block_type: blockType || '0',
       title: metricTitle,
-      description: htmlDescription,
+      description: buildHtmlTable(values, schema, metricTitle, floorId, metricCode),
     };
 
     const fd = new FormData();
@@ -195,9 +210,7 @@ export default function MetricIngestionModal({
     try {
       const response = await fetch(`${apiBaseUrl}/api/memory/events`, {
         method: 'POST',
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-        },
+        headers: { Authorization: `Bearer ${bearerToken}` },
         body: fd,
       });
 
@@ -236,17 +249,7 @@ export default function MetricIngestionModal({
           <div className="xfi-success-state">
             <p>Submitted (Queued)</p>
             <div className="xfi-actions-row">
-              <button
-                type="button"
-                className="xfi-primary"
-                onClick={() => {
-                  setValues({});
-                  setFiles([]);
-                  setErrors({});
-                  setSubmitError('');
-                  setIsSuccess(false);
-                }}
-              >
+              <button type="button" className="xfi-primary" onClick={() => setIsSuccess(false)}>
                 Add another
               </button>
               <button type="button" className="xfi-secondary" onClick={onClose}>
@@ -259,6 +262,7 @@ export default function MetricIngestionModal({
             <p className="xfi-meta">
               <strong>{metricTitle}</strong> ({metricCode}) — Floor ID: {floorId}
             </p>
+            {resolved?.fullTitle && <p className="xfi-meta">{resolved.fullTitle}</p>}
 
             {(schema?.fields || []).map((field) => {
               if (field.type === 'date_range') {
@@ -269,13 +273,13 @@ export default function MetricIngestionModal({
                       <input
                         type="date"
                         value={values[`${field.key}_from`] || ''}
-                        onChange={(e) => onChangeField(`${field.key}_from`, e.target.value)}
+                        onChange={(e) => setValues((prev) => ({ ...prev, [`${field.key}_from`]: e.target.value }))}
                       />
                       <span>to</span>
                       <input
                         type="date"
                         value={values[`${field.key}_to`] || ''}
-                        onChange={(e) => onChangeField(`${field.key}_to`, e.target.value)}
+                        onChange={(e) => setValues((prev) => ({ ...prev, [`${field.key}_to`]: e.target.value }))}
                       />
                     </div>
                     {errors[field.key] && <p className="xfi-error-text">{errors[field.key]}</p>}
@@ -283,25 +287,25 @@ export default function MetricIngestionModal({
                 );
               }
 
-              const inputTypeMap = {
-                text: 'text',
-                number: 'number',
-                year: 'number',
-                date: 'date',
-                url: 'url',
-              };
+              const inputType =
+                field.type === 'number' || field.type === 'year'
+                  ? 'number'
+                  : field.type === 'date'
+                  ? 'date'
+                  : field.type === 'url'
+                  ? 'url'
+                  : 'text';
 
               return (
                 <div key={field.key} className="xfi-field-group">
                   <label htmlFor={field.key}>{field.label}{field.required ? ' *' : ''}</label>
                   <input
                     id={field.key}
-                    type={inputTypeMap[field.type] || 'text'}
+                    type={inputType}
                     min={field.type === 'year' ? 1900 : undefined}
                     max={field.type === 'year' ? 2100 : undefined}
                     value={values[field.key] || ''}
-                    onChange={(e) => onChangeField(field.key, e.target.value)}
-                    required={false}
+                    onChange={(e) => setValues((prev) => ({ ...prev, [field.key]: e.target.value }))}
                   />
                   {errors[field.key] && <p className="xfi-error-text">{errors[field.key]}</p>}
                 </div>
@@ -309,14 +313,11 @@ export default function MetricIngestionModal({
             })}
 
             <div className="xfi-field-group">
-              <label>
-                Attachments
-                {schema?.attachments?.required ? ' *' : ''}
-              </label>
+              <label>{schema?.attachments?.label || 'Attachments'}{schema?.attachments?.required ? ' *' : ''}</label>
               <input
                 type="file"
                 multiple
-                accept={FILE_ACCEPT}
+                accept={fileAccept}
                 onChange={(e) => setFiles(Array.from(e.target.files || []))}
               />
               {files.length > 0 && (
@@ -326,6 +327,7 @@ export default function MetricIngestionModal({
                   ))}
                 </ul>
               )}
+              {schema?.attachments?.notes && <p className="xfi-help-text">{schema.attachments.notes}</p>}
               {errors.attachments && <p className="xfi-error-text">{errors.attachments}</p>}
             </div>
 
