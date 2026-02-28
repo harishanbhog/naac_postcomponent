@@ -176,6 +176,16 @@ export default function MetricIngestionModal({
     setIsSuccess(false);
   }, [isOpen, floorId]);
 
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') onClose();
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const schema = resolved?.schema;
@@ -234,10 +244,13 @@ export default function MetricIngestionModal({
   };
 
   return (
-    <div className="xfi-modal-overlay" role="dialog" aria-modal="true">
-      <div className="xfi-modal-panel">
+    <div className="xfi-modal-overlay" role="dialog" aria-modal="true" onClick={onClose}>
+      <div className="xfi-modal-panel" onClick={(event) => event.stopPropagation()}>
         <div className="xfi-modal-header">
-          <h2>NAAC Evidence Ingestion</h2>
+          <div>
+            <h2>NAAC Evidence Ingestion</h2>
+            <p className="xfi-subtitle">Sleek metric submission workspace</p>
+          </div>
           <button type="button" className="xfi-close-btn" onClick={onClose}>
             ×
           </button>
@@ -248,6 +261,7 @@ export default function MetricIngestionModal({
         ) : isSuccess ? (
           <div className="xfi-success-state">
             <p>Submitted (Queued)</p>
+            <span>Your evidence is accepted and queued for ingestion.</span>
             <div className="xfi-actions-row">
               <button type="button" className="xfi-primary" onClick={() => setIsSuccess(false)}>
                 Add another
@@ -259,10 +273,13 @@ export default function MetricIngestionModal({
           </div>
         ) : (
           <form onSubmit={onSubmit} className="xfi-form">
-            <p className="xfi-meta">
-              <strong>{metricTitle}</strong> ({metricCode}) — Floor ID: {floorId}
-            </p>
-            {resolved?.fullTitle && <p className="xfi-meta">{resolved.fullTitle}</p>}
+            <div className="xfi-meta-card">
+              <p className="xfi-meta">
+                <strong>{metricTitle}</strong> ({metricCode})
+              </p>
+              <p className="xfi-meta xfi-meta-light">Floor ID: {floorId}</p>
+            </div>
+            {resolved?.fullTitle && <p className="xfi-meta xfi-meta-full">{resolved.fullTitle}</p>}
 
             {(schema?.fields || []).map((field) => {
               if (field.type === 'date_range') {
@@ -271,12 +288,14 @@ export default function MetricIngestionModal({
                     <label>{field.label}{field.required ? ' *' : ''}</label>
                     <div className="xfi-date-range">
                       <input
+                        className="xfi-input"
                         type="date"
                         value={values[`${field.key}_from`] || ''}
                         onChange={(e) => setValues((prev) => ({ ...prev, [`${field.key}_from`]: e.target.value }))}
                       />
                       <span>to</span>
                       <input
+                        className="xfi-input"
                         type="date"
                         value={values[`${field.key}_to`] || ''}
                         onChange={(e) => setValues((prev) => ({ ...prev, [`${field.key}_to`]: e.target.value }))}
@@ -300,6 +319,7 @@ export default function MetricIngestionModal({
                 <div key={field.key} className="xfi-field-group">
                   <label htmlFor={field.key}>{field.label}{field.required ? ' *' : ''}</label>
                   <input
+                    className="xfi-input"
                     id={field.key}
                     type={inputType}
                     min={field.type === 'year' ? 1900 : undefined}
@@ -312,9 +332,10 @@ export default function MetricIngestionModal({
               );
             })}
 
-            <div className="xfi-field-group">
+            <div className="xfi-field-group xfi-attachment-group">
               <label>{schema?.attachments?.label || 'Attachments'}{schema?.attachments?.required ? ' *' : ''}</label>
               <input
+                className="xfi-input"
                 type="file"
                 multiple
                 accept={fileAccept}
