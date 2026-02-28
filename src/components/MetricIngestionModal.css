@@ -1,65 +1,59 @@
 :root {
   --xfi-bg: #f8fafc;
   --xfi-panel-bg: #fcfdff;
-  --xfi-card-bg: #f6f8fc;
+  --xfi-card-bg: #f7f9fd;
   --xfi-border: #e2e8f0;
-  --xfi-border-strong: #cbd5e1;
+  --xfi-border-strong: #cfd8e6;
   --xfi-text: #0f172a;
   --xfi-muted: #64748b;
   --xfi-primary: #2f5de4;
   --xfi-primary-dark: #264ec1;
   --xfi-danger: #b42318;
-  --xfi-radius: 12px;
-  --xfi-radius-lg: 14px;
-  --xfi-space-1: 8px;
-  --xfi-space-2: 12px;
-  --xfi-space-3: 16px;
-  --xfi-space-4: 22px;
-  --xfi-space-5: 28px;
 }
 
 .xfi-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.5);
+  background: rgba(15, 23, 42, 0.46);
   backdrop-filter: blur(2px);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 14px;
+  padding: 10px;
   z-index: 1000;
-  animation: xfi-fade-in 140ms ease;
+  animation: xfi-fade-in 150ms ease;
 }
 
 .xfi-modal-panel {
-  width: min(96vw, 900px);
-  max-height: 96vh;
-  overflow: auto;
+  width: min(92vw, 760px);
+  max-height: 90dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: var(--xfi-panel-bg);
   border: 1px solid var(--xfi-border);
-  border-radius: 18px;
-  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.18);
-  padding: 22px;
-  animation: xfi-scale-in 150ms ease;
+  border-radius: 16px;
+  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.16);
+  padding: 18px 20px;
+  animation: xfi-scale-in 140ms ease;
 }
 
 .xfi-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .xfi-header-title-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .xfi-header-title-row h2 {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--xfi-text);
 }
 
@@ -71,7 +65,7 @@
 .xfi-floor-pill {
   display: inline-flex;
   align-items: center;
-  padding: 3px 9px;
+  padding: 3px 8px;
   border-radius: 999px;
   background: #eef2ff;
   border: 1px solid #dbe2ff;
@@ -99,23 +93,23 @@
 }
 
 .xfi-form {
-  max-width: 760px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
 .xfi-description {
-  margin: 0 0 var(--xfi-space-3);
+  margin: 0 0 12px;
   color: #64748b;
-  font-size: 12.5px;
+  font-size: 12px;
   line-height: 1.35;
 }
 
 .xfi-section {
-  background: #ffffff;
+  background: #fff;
   border: 1px solid var(--xfi-border);
-  border-radius: var(--xfi-radius-lg);
-  padding: 18px;
-  margin-bottom: var(--xfi-space-4);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 18px;
 }
 
 .xfi-section-soft {
@@ -123,28 +117,23 @@
 }
 
 .xfi-section-title-row {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .xfi-section-title {
   margin: 0;
-  font-size: 15px;
-  line-height: 1.3;
+  font-size: 14px;
   color: #1e293b;
   font-weight: 600;
 }
 
 .xfi-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px 18px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
-.xfi-col-full {
-  grid-column: 1 / -1;
-}
-
+.xfi-col-full,
 .xfi-col-half {
   grid-column: span 1;
 }
@@ -152,7 +141,7 @@
 .xfi-field {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 6px;
   min-width: 0;
 }
 
@@ -161,11 +150,11 @@
   font-size: 12px;
   font-weight: 500;
   color: var(--xfi-muted);
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
 .xfi-input {
-  width: 100%;
+  width: 90%;
   height: 40px;
   border: 1px solid var(--xfi-border-strong);
   border-radius: 10px;
@@ -184,7 +173,7 @@
 
 .xfi-textarea {
   height: auto;
-  min-height: 82px;
+  min-height: 80px;
   resize: vertical;
   padding: 10px 11px;
 }
@@ -204,10 +193,9 @@
 
 .xfi-dropzone {
   border: 1px dashed #b8c5ea;
-  border-radius: var(--xfi-radius);
-  background: #ffffff;
-  padding: 16px;
-  text-align: left;
+  border-radius: 12px;
+  background: #fff;
+  padding: 14px;
   cursor: pointer;
   transition: border-color 150ms ease, background 150ms ease;
 }
@@ -220,7 +208,7 @@
 
 .xfi-dropzone p {
   margin: 0;
-  font-size: 13px;
+  font-size: 12.5px;
   color: #334155;
 }
 
@@ -236,12 +224,10 @@
   font-size: 11px;
 }
 
-.xfi-hidden-file-input {
-  display: none;
-}
+.xfi-hidden-file-input { display: none; }
 
 .xfi-file-chips {
-  margin: 11px 0 0;
+  margin: 10px 0 0;
   padding: 0;
   list-style: none;
   display: flex;
@@ -253,7 +239,6 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  max-width: 100%;
   border: 1px solid #d8e1f8;
   border-radius: 999px;
   background: #eef3ff;
@@ -263,7 +248,7 @@
 }
 
 .xfi-chip-name {
-  max-width: 220px;
+  max-width: 210px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -278,36 +263,32 @@
   line-height: 1;
 }
 
-.xfi-help-text {
-  margin: 8px 0 0;
-  color: #667085;
+.xfi-help-text,
+.xfi-error-text {
+  margin: 4px 0 0;
   font-size: 11.5px;
 }
 
-.xfi-error-text {
-  margin: 3px 0 0;
-  color: var(--xfi-danger);
-  font-size: 11.5px;
-  text-align: left;
-}
+.xfi-help-text { color: #667085; }
+.xfi-error-text { color: var(--xfi-danger); text-align: left; }
 
 .xfi-error-banner {
   margin: 10px 0;
   border: 1px solid #fecaca;
   background: #fef2f2;
   color: #b91c1c;
-  padding: 9px 11px;
+  padding: 8px 10px;
   border-radius: 10px;
-  font-size: 12.5px;
+  font-size: 12px;
 }
 
 .xfi-success-state {
-  max-width: 760px;
+  max-width: 640px;
   margin: 0 auto;
   border: 1px solid #b7efd2;
   background: #effdf4;
-  border-radius: var(--xfi-radius-lg);
-  padding: 18px;
+  border-radius: 14px;
+  padding: 14px;
 }
 
 .xfi-success-state p {
@@ -319,17 +300,17 @@
 
 .xfi-success-state span {
   display: block;
-  margin-top: 5px;
+  margin-top: 4px;
   color: #2f6a44;
-  font-size: 13px;
+  font-size: 12.5px;
 }
 
 .xfi-actions-row {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 6px;
-  padding-top: 8px;
+  margin-top: 4px;
+  padding-top: 6px;
 }
 
 .xfi-primary,
@@ -367,53 +348,49 @@
   box-shadow: none;
 }
 
-@media (max-width: 900px) {
-  .xfi-modal-panel {
-    width: 98vw;
-    padding: 18px;
-  }
-
-  .xfi-form {
-    max-width: 100%;
-  }
-}
-
 @media (max-width: 640px) {
   .xfi-modal-overlay {
-    padding: 8px;
+    padding: 6px;
     align-items: flex-start;
   }
 
   .xfi-modal-panel {
-    margin-top: 8px;
-    max-height: 98vh;
+    width: 96vw;
+    margin-top: 6px;
+    max-height: 96dvh;
     border-radius: 14px;
-    padding: 14px;
+    padding: 12px;
   }
 
   .xfi-header-title-row h2 {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
   }
 
-  .xfi-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .xfi-form,
+  .xfi-success-state {
+    max-width: 100%;
   }
 
-  .xfi-col-full,
-  .xfi-col-half {
-    grid-column: span 1;
+  .xfi-section {
+    padding: 12px;
+    margin-bottom: 14px;
+  }
+
+  .xfi-input {
+    width: 80%;
+    font-size: 13px;
   }
 
   .xfi-date-range-modern {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .xfi-actions-row {
     position: sticky;
     bottom: 0;
     background: var(--xfi-panel-bg);
-    padding: 10px 0 2px;
+    padding: 8px 0 2px;
   }
 }
 

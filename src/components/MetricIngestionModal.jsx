@@ -48,15 +48,6 @@ function mergeFiles(existingFiles, incomingFiles) {
   return Array.from(byKey.values());
 }
 
-function isCompactTwoColField(field) {
-  if (shouldUseTextarea(field)) return false;
-  const token = `${field.key} ${field.label}`.toLowerCase();
-  if (field.label.length > 34) return false;
-
-  const compactKeywords = ['program', 'course', 'code', 'year', 'url', 'link'];
-  return compactKeywords.some((keyword) => token.includes(keyword));
-}
-
 function shouldUseTextarea(field) {
   if (field.type !== 'text') return false;
   const token = `${field.key} ${field.label}`.toLowerCase();
@@ -354,7 +345,7 @@ export default function MetricIngestionModal({
               <h3 className="xfi-section-title">Evidence details</h3>
               <div className="xfi-grid">
                 {(schema?.fields || []).map((field) => {
-                  const fieldClass = isCompactTwoColField(field) ? 'xfi-col-half' : 'xfi-col-full';
+                  const fieldClass = 'xfi-col-full';
 
                   if (field.type === 'date_range') {
                     return (
