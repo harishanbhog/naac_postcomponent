@@ -14,8 +14,8 @@
   --xfi-space-1: 8px;
   --xfi-space-2: 12px;
   --xfi-space-3: 16px;
-  --xfi-space-4: 24px;
-  --xfi-space-5: 30px;
+  --xfi-space-4: 22px;
+  --xfi-space-5: 28px;
 }
 
 .xfi-modal-overlay {
@@ -26,20 +26,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 18px;
+  padding: 14px;
   z-index: 1000;
   animation: xfi-fade-in 140ms ease;
 }
 
 .xfi-modal-panel {
-  width: min(96vw, 920px);
-  max-height: 94vh;
+  width: min(96vw, 900px);
+  max-height: 96vh;
   overflow: auto;
   background: var(--xfi-panel-bg);
   border: 1px solid var(--xfi-border);
   border-radius: 18px;
   box-shadow: 0 20px 42px rgba(15, 23, 42, 0.18);
-  padding: 26px;
+  padding: 22px;
   animation: xfi-scale-in 150ms ease;
 }
 
@@ -47,19 +47,19 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: var(--xfi-space-4);
+  margin-bottom: 14px;
 }
 
 .xfi-header-title-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--xfi-space-2);
+  gap: 10px;
 }
 
 .xfi-header-title-row h2 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--xfi-text);
 }
 
@@ -71,18 +71,18 @@
 .xfi-floor-pill {
   display: inline-flex;
   align-items: center;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 999px;
   background: #eef2ff;
   border: 1px solid #dbe2ff;
   color: #4a5b8f;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
 }
 
 .xfi-close-btn {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border: none;
   border-radius: 999px;
   background: #edf1f7;
@@ -104,18 +104,18 @@
 }
 
 .xfi-description {
-  margin: 0 0 var(--xfi-space-4);
-  color: #475569;
-  font-size: 14px;
-  line-height: 1.45;
+  margin: 0 0 var(--xfi-space-3);
+  color: #64748b;
+  font-size: 12.5px;
+  line-height: 1.35;
 }
 
 .xfi-section {
   background: #ffffff;
   border: 1px solid var(--xfi-border);
   border-radius: var(--xfi-radius-lg);
-  padding: var(--xfi-space-4);
-  margin-bottom: var(--xfi-space-5);
+  padding: 18px;
+  margin-bottom: var(--xfi-space-4);
 }
 
 .xfi-section-soft {
@@ -123,13 +123,13 @@
 }
 
 .xfi-section-title-row {
-  margin-bottom: var(--xfi-space-3);
+  margin-bottom: 12px;
 }
 
 .xfi-section-title {
   margin: 0;
   font-size: 15px;
-  line-height: 1.4;
+  line-height: 1.3;
   color: #1e293b;
   font-weight: 600;
 }
@@ -137,11 +137,12 @@
 .xfi-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 20px 18px;
+  align-items: start;
 }
 
 .xfi-col-full {
-  grid-column: span 2;
+  grid-column: 1 / -1;
 }
 
 .xfi-col-half {
@@ -151,25 +152,27 @@
 .xfi-field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
+  min-width: 0;
 }
 
 .xfi-label {
   text-align: left;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--xfi-muted);
+  line-height: 1.35;
 }
 
 .xfi-input {
   width: 100%;
-  height: 42px;
+  height: 40px;
   border: 1px solid var(--xfi-border-strong);
   border-radius: 10px;
   background: #fff;
   color: var(--xfi-text);
   font-size: 14px;
-  padding: 0 12px;
+  padding: 0 11px;
   transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
@@ -181,9 +184,9 @@
 
 .xfi-textarea {
   height: auto;
-  min-height: 88px;
+  min-height: 82px;
   resize: vertical;
-  padding: 10px 12px;
+  padding: 10px 11px;
 }
 
 .xfi-date-range-modern {
@@ -203,7 +206,7 @@
   border: 1px dashed #b8c5ea;
   border-radius: var(--xfi-radius);
   background: #ffffff;
-  padding: 18px;
+  padding: 16px;
   text-align: left;
   cursor: pointer;
   transition: border-color 150ms ease, background 150ms ease;
@@ -217,7 +220,7 @@
 
 .xfi-dropzone p {
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
   color: #334155;
 }
 
@@ -228,8 +231,9 @@
 
 .xfi-dropzone small {
   display: block;
-  margin-top: 6px;
+  margin-top: 5px;
   color: #64748b;
+  font-size: 11px;
 }
 
 .xfi-hidden-file-input {
@@ -237,24 +241,24 @@
 }
 
 .xfi-file-chips {
-  margin: 12px 0 0;
+  margin: 11px 0 0;
   padding: 0;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
 }
 
 .xfi-chip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   max-width: 100%;
   border: 1px solid #d8e1f8;
   border-radius: 999px;
   background: #eef3ff;
   color: #2b3c6d;
-  padding: 6px 10px;
+  padding: 5px 9px;
   font-size: 12px;
 }
 
@@ -275,26 +279,26 @@
 }
 
 .xfi-help-text {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   color: #667085;
-  font-size: 12px;
+  font-size: 11.5px;
 }
 
 .xfi-error-text {
-  margin: 4px 0 0;
+  margin: 3px 0 0;
   color: var(--xfi-danger);
-  font-size: 12px;
+  font-size: 11.5px;
   text-align: left;
 }
 
 .xfi-error-banner {
-  margin: 12px 0;
+  margin: 10px 0;
   border: 1px solid #fecaca;
   background: #fef2f2;
   color: #b91c1c;
-  padding: 10px 12px;
+  padding: 9px 11px;
   border-radius: 10px;
-  font-size: 13px;
+  font-size: 12.5px;
 }
 
 .xfi-success-state {
@@ -303,37 +307,37 @@
   border: 1px solid #b7efd2;
   background: #effdf4;
   border-radius: var(--xfi-radius-lg);
-  padding: 20px;
+  padding: 18px;
 }
 
 .xfi-success-state p {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   color: #166534;
   font-weight: 600;
 }
 
 .xfi-success-state span {
   display: block;
-  margin-top: 6px;
+  margin-top: 5px;
   color: #2f6a44;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .xfi-actions-row {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 4px;
-  padding-top: 14px;
+  margin-top: 6px;
+  padding-top: 8px;
 }
 
 .xfi-primary,
 .xfi-secondary {
-  height: 40px;
+  height: 38px;
   border-radius: 10px;
-  padding: 0 16px;
-  font-size: 14px;
+  padding: 0 15px;
+  font-size: 13px;
   cursor: pointer;
   transition: transform 150ms ease, background 150ms ease, box-shadow 150ms ease;
 }
@@ -363,13 +367,37 @@
   box-shadow: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .xfi-modal-panel {
-    padding: 20px;
+    width: 98vw;
+    padding: 18px;
+  }
+
+  .xfi-form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .xfi-modal-overlay {
+    padding: 8px;
+    align-items: flex-start;
+  }
+
+  .xfi-modal-panel {
+    margin-top: 8px;
+    max-height: 98vh;
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .xfi-header-title-row h2 {
+    font-size: 0.98rem;
   }
 
   .xfi-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .xfi-col-full,
@@ -379,6 +407,13 @@
 
   .xfi-date-range-modern {
     grid-template-columns: 1fr;
+  }
+
+  .xfi-actions-row {
+    position: sticky;
+    bottom: 0;
+    background: var(--xfi-panel-bg);
+    padding: 10px 0 2px;
   }
 }
 

@@ -49,7 +49,10 @@ function mergeFiles(existingFiles, incomingFiles) {
 }
 
 function isCompactTwoColField(field) {
+  if (shouldUseTextarea(field)) return false;
   const token = `${field.key} ${field.label}`.toLowerCase();
+  if (field.label.length > 34) return false;
+
   const compactKeywords = ['program', 'course', 'code', 'year', 'url', 'link'];
   return compactKeywords.some((keyword) => token.includes(keyword));
 }
