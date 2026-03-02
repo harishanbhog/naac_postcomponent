@@ -213,6 +213,15 @@ export function buildHtmlTable(values, schema, metricTitle, floorId, metricCode 
   return `${header}<table border="1" cellpadding="6" cellspacing="0"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
+const normalizeFloorIdForSchema = (id) => {
+  if (!id) return id;
+  const parts = id.split("_").filter(Boolean);
+  // If already short (e.g., "c3_313" / "c5_513"), keep as-is
+  if (parts.length <= 2) return id;
+  // Trim prefix like "tpc" and keep last 2 tokens
+  return parts.slice(-2).join("_");
+};
+
 export default function MetricIngestionModal({
   isOpen,
   onClose,
@@ -234,8 +243,9 @@ export default function MetricIngestionModal({
 
   const resolved = useMemo(() => {
     if (!isOpen || !floorId || !formConfig) return null;
+    const schemaFloorId = normalizeFloorIdForSchema(floorId);
     try {
-      return resolveSchema(floorId, formConfig);
+      return resolveSchema(schemaFloorId, formConfig);
     } catch (error) {
       return { error: error.message };
     }
