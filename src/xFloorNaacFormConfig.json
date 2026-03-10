@@ -1,0 +1,1502 @@
+{
+  "schema_version": "xfloor.ingestion_forms.v1",
+  "generated_on_utc": "2026-02-27T19:29:11Z",
+  "source": {
+    "derived_from": "naac_evidence_only_grouped_children_with_form_schema_v0_5_floorid_index.json",
+    "purpose": "Runtime-only form schemas for staff/HoD ingestion UI (floor_id -> dynamic form)."
+  },
+  "forms_by_floor_id": {
+    "c1_113": {
+      "floor_id": "c1_113",
+      "criterion_code": "C1",
+      "metric_code": "1.1.3",
+      "title": "Teacher Participation",
+      "full_title": "1.1.3 Teachers of the Institution participate in following activities related to curriculum development and assessment of the affiliating University and/are represented on the following academic bodies during the year\n1. Academic council/BoS of Affiliating university\n2. Setting of question papers for UG/PG programs \n3. Design and  Development of Curriculum for Add on/ certificate/ Diploma Courses \n4. Assessment /evaluation process of the affiliating University",
+      "fields": [
+        {
+          "key": "year",
+          "label": "Year",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "name_of_teacher_participated",
+          "label": "Name of teacher participated",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_body_in_which_full_time_teacher_participated",
+          "label": "Name of the body in which full time teacher participated",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c1_122": {
+      "floor_id": "c1_122",
+      "criterion_code": "C1",
+      "metric_code": "1.2.2",
+      "title": "Add-on Programs",
+      "full_title": "1.2.2 Number of Add on /Certificate programs offered during the year",
+      "fields": [
+        {
+          "key": "name_of_add_on_certificate_programs_offered",
+          "label": "Name of Add on /Certificate programs offered",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "course_code_if_any",
+          "label": "Course Code (if any)",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_offering",
+          "label": "Year of offering",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "no_of_times_offered_during_the_same_year",
+          "label": "No. of times offered during the same year",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "duration_of_course",
+          "label": "Duration of course",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "number_of_students_enrolled_in_the_year",
+          "label": "Number of students enrolled in the year",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "number_of_students_completing_the_course_in_the_year",
+          "label": "Number of Students completing the course in the year",
+          "type": "year",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c1_123": {
+      "floor_id": "c1_123",
+      "criterion_code": "C1",
+      "metric_code": "1.2.3",
+      "title": "Add-on Enrolment",
+      "full_title": "1.2.2 Number of Add on /Certificate programs offered during the year",
+      "fields": [
+        {
+          "key": "name_of_add_on_certificate_programs_offered",
+          "label": "Name of Add on /Certificate programs offered",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "course_code_if_any",
+          "label": "Course Code (if any)",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_offering",
+          "label": "Year of offering",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "no_of_times_offered_during_the_same_year",
+          "label": "No. of times offered during the same year",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "duration_of_course",
+          "label": "Duration of course",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "number_of_students_enrolled_in_the_year",
+          "label": "Number of students enrolled in the year",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "number_of_students_completing_the_course_in_the_year",
+          "label": "Number of Students completing the course in the year",
+          "type": "year",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c1_132": {
+      "floor_id": "c1_132",
+      "criterion_code": "C1",
+      "metric_code": "1.3.2",
+      "title": "Experiential Courses",
+      "full_title": "1.3.2 Number of courses that include experiential learning through project work/field work/internship during the year",
+      "fields": [
+        {
+          "key": "program_name",
+          "label": "Program name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "program_code",
+          "label": "Program code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_course_that_include_experiential_learning_through_project_work_field_work_internship",
+          "label": "Name of the Course that include experiential learning through project work/field work/internship",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "course_code",
+          "label": "Course code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_offering",
+          "label": "Year of offering",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "name_of_the_student_studied_course_on_experiential_learning_through_project_work_field_work_internship",
+          "label": "Name of the student studied course on experiential learning through project work/field work/internship",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "link_to_the_relevant_document",
+          "label": "Link to the relevant document",
+          "type": "url",
+          "required": false
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c1_133": {
+      "floor_id": "c1_133",
+      "criterion_code": "C1",
+      "metric_code": "1.3.3",
+      "title": "Projects & Internships",
+      "full_title": "1.3.3 Number of students undertaking project work/field work/ internships",
+      "fields": [
+        {
+          "key": "programme_name",
+          "label": "Programme name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "program_code",
+          "label": "Program Code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "list_of_students_undertaking_project_work_field_work_internship",
+          "label": "List of students undertaking project work/field work/internship",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "link_to_the_relevant_document",
+          "label": "Link to the relevant document",
+          "type": "url",
+          "required": false
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c3_311": {
+      "floor_id": "c3_311",
+      "criterion_code": "C3",
+      "metric_code": "3.1.1",
+      "title": "Grants Received",
+      "full_title": "3.1.1 Grants received from Government and non-governmental agencies for research projects, endowments  in the institution during the year (INR in Lakhs)",
+      "fields": [
+        {
+          "key": "name_of_the_project_endowments_chairs",
+          "label": "Name of the Project/ Endowments, Chairs",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_principal_investigator_co_investivator",
+          "label": "Name of the Principal Investigator/Co-investivator",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "department_of_principal_investigator",
+          "label": "Department of Principal Investigator",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_award",
+          "label": "Year of Award",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "amount_sanctioned",
+          "label": "Amount Sanctioned",
+          "type": "currency",
+          "required": true
+        },
+        {
+          "key": "duration_of_the_project",
+          "label": "Duration of the project",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "name_of_the_funding_agency",
+          "label": "Name of the Funding Agency",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "type_government_non_government",
+          "label": "Type (Government/non-Government)",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c3_312": {
+      "floor_id": "c3_312",
+      "criterion_code": "C3",
+      "metric_code": "3.1.2",
+      "title": "Endowments",
+      "full_title": "3.1.1 Grants received from Government and non-governmental agencies for research projects, endowments  in the institution during the year (INR in Lakhs)",
+      "fields": [
+        {
+          "key": "name_of_the_project_endowments_chairs",
+          "label": "Name of the Project/ Endowments, Chairs",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_principal_investigator_co_investivator",
+          "label": "Name of the Principal Investigator/Co-investivator",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "department_of_principal_investigator",
+          "label": "Department of Principal Investigator",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_award",
+          "label": "Year of Award",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "amount_sanctioned",
+          "label": "Amount Sanctioned",
+          "type": "currency",
+          "required": true
+        },
+        {
+          "key": "duration_of_the_project",
+          "label": "Duration of the project",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "name_of_the_funding_agency",
+          "label": "Name of the Funding Agency",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "type_government_non_government",
+          "label": "Type (Government/non-Government)",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c3_313": {
+      "floor_id": "c3_313",
+      "criterion_code": "C3",
+      "metric_code": "3.1.3",
+      "title": "Seminars & Workshops",
+      "full_title": "3.1.3  Number of Seminars/conferences/workshops conducted by the institution during the year",
+      "fields": [
+        {
+          "key": "year",
+          "label": "Year",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "name_of_the_workshop_seminar",
+          "label": "Name of the workshop/ seminar",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "number_of_participants",
+          "label": "Number of Participants",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "date_from_to",
+          "label": "Date From – To",
+          "type": "date_range",
+          "required": true
+        },
+        {
+          "key": "link_to_the_activity_report_on_the_website",
+          "label": "Link to the Activity report on the website",
+          "type": "url",
+          "required": false
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c3_321": {
+      "floor_id": "c3_321",
+      "criterion_code": "C3",
+      "metric_code": "3.2.1",
+      "title": "Journal Papers",
+      "full_title": "3.2.1 Number of papers published per teacher in the Journals notified on UGC website during the year",
+      "fields": [
+        {
+          "key": "title_of_paper",
+          "label": "Title of paper",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_author_s",
+          "label": "Name of the author/s",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "department_of_the_teacher",
+          "label": "Department of the teacher",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_journal",
+          "label": "Name of journal",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_publication",
+          "label": "Year of publication",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "issn_number",
+          "label": "ISSN number",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "link_to_the_recognition_in_ugc_enlistment_of_the_journal",
+          "label": "Link to the recognition in UGC enlistment of the Journal",
+          "type": "url",
+          "required": false
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c3_322": {
+      "floor_id": "c3_322",
+      "criterion_code": "C3",
+      "metric_code": "3.2.2",
+      "title": "Books & Chapters",
+      "full_title": "3.2.2  Number of books and chapters in edited volumes/books published and papers published in national/ international conference proceedings per teacher during the year",
+      "fields": [
+        {
+          "key": "sl_no",
+          "label": "Sl. No.",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_teacher",
+          "label": "Name of the teacher",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "title_of_the_book_chapters_published",
+          "label": "Title of the book/chapters published",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "title_of_the_paper",
+          "label": "Title of the paper",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "title_of_the_proceedings_of_the_conference",
+          "label": "Title of the proceedings of the conference",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_conference",
+          "label": "Name of the conference",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "national_international",
+          "label": "National / International",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_publication",
+          "label": "Year of publication",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "isbn_issn_number_of_the_proceeding",
+          "label": "ISBN/ISSN number of the proceeding",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "affiliating_institute_at_the_time_of_publication",
+          "label": "Affiliating Institute at the time of publication",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_publisher",
+          "label": "Name of the publisher",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c3_332": {
+      "floor_id": "c3_332",
+      "criterion_code": "C3",
+      "metric_code": "3.3.2",
+      "title": "Extension Awards",
+      "full_title": "3.3.2 Number of awards and recognitions received for extension activities from government / government recognized bodies during the year",
+      "fields": [
+        {
+          "key": "name_of_the_activity",
+          "label": "Name of the activity",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_award_recognition",
+          "label": "Name of the Award/ recognition",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_awarding_government_government_recognised_bodies",
+          "label": "Name of the Awarding government/ government recognised bodies",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_award",
+          "label": "Year of award",
+          "type": "year",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c3_333": {
+      "floor_id": "c3_333",
+      "criterion_code": "C3",
+      "metric_code": "3.3.3",
+      "title": "Extension Activities",
+      "full_title": "3.3.3 Number of extension and outreach programs conducted  by the institution through NSS/NCC/Government and Government recognized bodies (including the programmes such as Swachh Bharat, AIDS awareness, Gender issues etc. and/or  those organised in collaboration with industry, community and NGOs ) during the year",
+      "fields": [
+        {
+          "key": "name_of_the_activity",
+          "label": "Name of the activity",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "organising_unit_agency_collaborating_agency",
+          "label": "Organising unit/ agency/ collaborating agency",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_scheme",
+          "label": "Name of the scheme",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_the_activity",
+          "label": "Year of the activity",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "number_of_students_participated_in_such_activities",
+          "label": "Number of students participated in such activities",
+          "type": "number",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c3_334": {
+      "floor_id": "c3_334",
+      "criterion_code": "C3",
+      "metric_code": "3.3.4",
+      "title": "Outreach Programs",
+      "full_title": "3.3.3 Number of extension and outreach programs conducted  by the institution through NSS/NCC/Government and Government recognized bodies (including the programmes such as Swachh Bharat, AIDS awareness, Gender issues etc. and/or  those organised in collaboration with industry, community and NGOs ) during the year",
+      "fields": [
+        {
+          "key": "name_of_the_activity",
+          "label": "Name of the activity",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "organising_unit_agency_collaborating_agency",
+          "label": "Organising unit/ agency/ collaborating agency",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_scheme",
+          "label": "Name of the scheme",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_the_activity",
+          "label": "Year of the activity",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "number_of_students_participated_in_such_activities",
+          "label": "Number of students participated in such activities",
+          "type": "number",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c3_341": {
+      "floor_id": "c3_341",
+      "criterion_code": "C3",
+      "metric_code": "3.4.1",
+      "title": "Collaborative Activities",
+      "full_title": "3.4.1 The Institution has several collaborations/linkages for Faculty exchange, Student exchange, Internship, Field trip, On-the- job training, research etc during the year",
+      "fields": [
+        {
+          "key": "sl_no",
+          "label": "Sl. No.",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "title_of_the_collaborative_activity",
+          "label": "Title of the collaborative activity",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_collaborating_agency_with_contact_details",
+          "label": "Name of the collaborating agency with contact details",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_participant",
+          "label": "Name of the participant",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_collaboration",
+          "label": "Year of collaboration",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "duration",
+          "label": "Duration",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "nature_of_the_activity",
+          "label": "Nature of the activity",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "link_to_the_relavant_document",
+          "label": "Link to the relavant document",
+          "type": "url",
+          "required": false
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c3_342": {
+      "floor_id": "c3_342",
+      "criterion_code": "C3",
+      "metric_code": "3.4.2",
+      "title": "MoUs Signed",
+      "full_title": "3.4.2 Number of functional MoUs with national and international institutions, universities, industries, corporate houses etc. during the year",
+      "fields": [
+        {
+          "key": "organisation_with_which_mou_is_signed",
+          "label": "Organisation with which MoU is signed",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_institution_industry_corporate_house",
+          "label": "Name of the institution/ industry/ corporate house",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "year_of_signing_mou",
+          "label": "Year of signing MoU",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "duration",
+          "label": "Duration",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "list_the_actual_activities_under_each_mou_year_wise",
+          "label": "List the actual activities under each MOU year wise",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "number_of_students_teachers_participated_under_mous",
+          "label": "Number of students/teachers participated under MoUs",
+          "type": "number",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c4_413": {
+      "floor_id": "c4_413",
+      "criterion_code": "C4",
+      "metric_code": "4.1.3",
+      "title": "ICT Facilities",
+      "full_title": "4.1.3 Number of classrooms and seminar halls with ICT- enabled facilities such as smart class, LMS, etc.",
+      "fields": [
+        {
+          "key": "room_number_or_name_of_classrooms_seminar_hall_with_lcd_wifi_lan_facilities_with_room_numbers",
+          "label": "Room number or Name of classrooms/Seminar Hall with LCD / wifi/LAN facilities with room numbers",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "type_of_ict_facility",
+          "label": "Type of ICT facility",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "link_to_geo_tagged_photos_and_master_time_table",
+          "label": "Link to geo tagged photos and master time table",
+          "type": "url",
+          "required": false
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c5_513": {
+      "floor_id": "c5_513",
+      "criterion_code": "C5",
+      "metric_code": "5.1.3",
+      "title": "Skill Programs",
+      "full_title": "5.1.3 Capacity building and skills enhancement initiatives  taken by the institution include the following \n1. Soft skills, 2. Language and communication skills, 3. Life skills (Yoga, physical fitness, health and hygiene), 4. ICT/computing  skills",
+      "fields": [
+        {
+          "key": "name_of_the_capability_enhancement_program",
+          "label": "Name of the capability enhancement program",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "date_of_implementation_dd_mm_yyyy",
+          "label": "Date of implementation (DD-MM-YYYY)",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "number_of_students_enrolled",
+          "label": "Number of students enrolled",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "name_of_the_agencies_consultants_involved_with_contact_details_if_any",
+          "label": "Name of the agencies/consultants involved with contact details (if any)",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c5_514": {
+      "floor_id": "c5_514",
+      "criterion_code": "C5",
+      "metric_code": "5.1.4",
+      "title": "Career Guidance",
+      "full_title": "5.1.4 Number of students benefitted by guidance for competitive examinations and career counseling offered by the Institution during the year",
+      "fields": [
+        {
+          "key": "year",
+          "label": "Year",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "name_of_the_activity_conducted_by_the_hei_to_offer_guidance_for_competitive_examinations_offered_by_the_institution_during_the_last_five_years",
+          "label": "Name of the Activity conducted by the HEI to offer guidance for competitive examinations offered by the institution during the last five years",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "name_of_the_activity_conducted_by_the_hei_to_offer_guidance_for_career_counselling_offered_by_the_institution_during_the_last_five_years",
+          "label": "Name of the Activity conducted by the HEI to offer guidance for career counselling offered by the institution during the last five years",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "number_of_students_placed_through_campus_placement",
+          "label": "Number of students placed through campus placement",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "link_to_the_relevant_document",
+          "label": "Link to the relevant document",
+          "type": "url",
+          "required": false
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c5_521": {
+      "floor_id": "c5_521",
+      "criterion_code": "C5",
+      "metric_code": "5.2.1",
+      "title": "Student Placement",
+      "full_title": "5.2.1 Number of placement of outgoing students during the year",
+      "fields": [
+        {
+          "key": "year",
+          "label": "Year",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "name_of_student_placed_and_contact_details",
+          "label": "Name of student placed and contact details",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "program_graduated_from",
+          "label": "Program graduated from",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_employer_with_contact_details",
+          "label": "Name of the employer with contact details",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "pay_package_at_appointment",
+          "label": "Pay package at appointment",
+          "type": "currency",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c5_522": {
+      "floor_id": "c5_522",
+      "criterion_code": "C5",
+      "metric_code": "5.2.2",
+      "title": "Higher Studies",
+      "full_title": "5.2.2 Number of students progressing to higher education during the year",
+      "fields": [
+        {
+          "key": "name_of_student_enrolling_into_higher_education",
+          "label": "Name of student enrolling into higher education",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "program_graduated_from",
+          "label": "Program graduated from",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_institution_joined",
+          "label": "Name of institution joined",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_programme_admitted_to",
+          "label": "Name of programme admitted to",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c5_523": {
+      "floor_id": "c5_523",
+      "criterion_code": "C5",
+      "metric_code": "5.2.3",
+      "title": "Competitive Exams",
+      "full_title": "5.2.3 Number of students qualifying in state/national/ international level examinations during the year (eg: JAM/GATE/ CLAT/GMAT/CAT/GRE/ TOEFL/ Civil Services/State government examinations, etc.)",
+      "fields": [
+        {
+          "key": "net",
+          "label": "NET",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "slet",
+          "label": "SLET",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "gate",
+          "label": "GATE",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "gmat",
+          "label": "GMAT",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "cat",
+          "label": "CAT",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "gre",
+          "label": "GRE",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "jam",
+          "label": "JAM",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "ielet",
+          "label": "IELET",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "toefl",
+          "label": "TOEFL",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "civil_services",
+          "label": "Civil Services",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "state_government_examinations",
+          "label": "State government examinations",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "other_examinations_conducted_by_the_state_central_government_agencies_specify",
+          "label": "Other examinations conducted by the State / Central Government Agencies (Specify)",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c5_531": {
+      "floor_id": "c5_531",
+      "criterion_code": "C5",
+      "metric_code": "5.3.1",
+      "title": "Sports Awards",
+      "full_title": "5.3.1 Number of awards/medals for outstanding performance in sports/cultural activities at university/state/national / international level (award for a team event should be counted as one) during the year.",
+      "fields": [
+        {
+          "key": "year",
+          "label": "Year",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "name_of_the_award_medal",
+          "label": "Name of the award/ medal",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "team_individual",
+          "label": "Team / Individual",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "university_state_national_international",
+          "label": "University/State/National/ International",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "sports_cultural",
+          "label": "Sports/ Cultural",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_student",
+          "label": "Name of the student",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c5_533": {
+      "floor_id": "c5_533",
+      "criterion_code": "C5",
+      "metric_code": "5.3.3",
+      "title": "Cultural Participation",
+      "full_title": "5.3.3 Number of sports and cultural events/competitions in which students of the Institution participated during the year (organized by the institution/other institutions)",
+      "fields": [
+        {
+          "key": "date_of_event_activity_dd_mm_yyyy",
+          "label": "Date of event/activity (DD-MM-YYYY)",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "name_of_the_event_activity",
+          "label": "Name of the event/activity",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "name_of_the_student_participated",
+          "label": "Name of the student participated",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c6_633": {
+      "floor_id": "c6_633",
+      "criterion_code": "C6",
+      "metric_code": "6.3.3",
+      "title": "Staff Training",
+      "full_title": "6.3.3 Number of professional development /administrative training programs organized by the institution for teaching and non-teaching staff during the year",
+      "fields": [
+        {
+          "key": "dates_from_to_dd_mm_yyyy",
+          "label": "Dates (from-to) (DD-MM-YYYY)",
+          "type": "date_range",
+          "required": true
+        },
+        {
+          "key": "title_of_the_professional_development_program_organised_for_teaching_staff",
+          "label": "Title of the professional development program organised for teaching staff",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "title_of_the_administrative_training_program_organised_for_non_teaching_staff",
+          "label": "Title of the administrative training program organised for non-teaching staff",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "no_of_participants",
+          "label": "No. of participants",
+          "type": "number",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c6_634": {
+      "floor_id": "c6_634",
+      "criterion_code": "C6",
+      "metric_code": "6.3.4",
+      "title": "FDP Attended",
+      "full_title": "6.3.4 Number of teachers undergoing online/face-to-face Faculty development Programmes (FDP) during the year\n(Professional Development Programmes, Orientation / Induction Programmes, Refresher Course, Short Term Course etc.)",
+      "fields": [
+        {
+          "key": "name_of_teacher_who_attended",
+          "label": "Name of teacher who attended",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "title_of_the_program",
+          "label": "Title of the program",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "duration_from_to_dd_mm_yyyy",
+          "label": "Duration (from – to) (DD-MM-YYYY)",
+          "type": "date_range",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    },
+    "c6_653": {
+      "floor_id": "c6_653",
+      "criterion_code": "C6",
+      "metric_code": "6.5.3",
+      "title": "Quality Initiatives",
+      "full_title": "6.5.3 Quality assurance initiatives of the institution include:\n1. Regular meeting of Internal Quality Assurance Cell (IQAC);  Feedback collected, analysed and used for improvements\n2.  Collaborative quality intitiatives with other institution(s)\n3. Participation in NIRF\n4..any other quality audit recognized by state, national or international agencies (ISO Certification, NBA)",
+      "fields": [
+        {
+          "key": "year",
+          "label": "Year",
+          "type": "year",
+          "required": true
+        },
+        {
+          "key": "confernces_seminars_workshops_on_quality_conducted",
+          "label": "Confernces, Seminars, Workshops on quality conducted",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "academic_administrative_audit_aaa_and_initiation_of_follow_up_action",
+          "label": "Academic Administrative Audit (AAA) and initiation of follow up action",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "participation_in_nirf_along_with_status",
+          "label": "Participation in NIRF along with Status.",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "iso_certification_and_nature_and_validity_period",
+          "label": "ISO Certification. and nature and validity period",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "nba_or_any_other_certification_received_with_program_specifications",
+          "label": "NBA or any other certification received with program specifications.",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "collaborative_quality_initiatives_with_other_institution_s_provide_name_of_the_institution_and_activity",
+          "label": "Collaborative quality initiatives with other institution(s) (Provide name of the institution and activity)",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "orientation_programme_on_quality_issues_for_teachers_and_students_organised_by_the_institution_date_from_to_dd_mm_yyyy",
+          "label": "Orientation programme on quality issues for teachers and students organised by the institution, Date (From-To) (DD-MM-YYYY)",
+          "type": "date_range",
+          "required": true
+        }
+      ],
+      "attachments": {
+        "key": "attachments",
+        "label": "Attachments",
+        "type": "attachments",
+        "required": true,
+        "min_files": 1,
+        "allowed_types": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "notes": "Upload supporting documents/photos/videos. The post URL serves as the evidence link."
+      }
+    }
+  },
+  "notes": [
+    "This file intentionally excludes roles, approvals, and other admin metadata.",
+    "Use forms_by_floor_id[floorId] to render the dynamic form.",
+    "Attachments are required by default (image/video/pdf)."
+  ],
+  "stats": {
+    "forms_count": 26
+  }
+}
